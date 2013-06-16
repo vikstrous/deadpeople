@@ -17,25 +17,50 @@ function global_replace(search, replace){
 }
 
 global_replace(/LinkedIn/gi, 'HideOut');
+global_replace(/software/gi, 'Soft Brains');
+global_replace(/university/gi, 'Buffet');
+global_replace(/college/gi, 'Buffet');
+$('.member-connections').html($('.member-connections').html().replace(/connections/g, 'kills'));
+
+$($('.background-experience').children()[2]).find('h4>a').text('Zombie Food');
+$('#languages-view>ol').append('<li class="section-item "><h4>Zombie<span class="edit-tools"><span class="edit-order">Re-order</span></span></h4><span class="languages-proficiency">Native or bilingual proficiency</span></li>')
+
+$($('.background-experience').children()[1]).find('.associated-endorsements .row-first>p>span').text("DO NOT HIRE. THEY TRIED TO BITE ME!");
+$($('.background-experience').children()[2]).find('.associated-endorsements .row-first>p>span').text("TASTY!");
 
 skill_replacements = [
-	'Biting',
-	'Gnawing',
-	'Skull Crushing',
-	'Human Hunting',
-	'Human Tracking',
-	'Endurance',
-	'Regeneration',
-	'Apathy',
-	'Crawling',
-	'Infection',
-	'Jumping',
-	'Frightening Children',
-	'Dispersing Crowds',
-	'Chewing',
-	'Eating Flesh',
-	'Eating Brains',
-	'Scaling Buildings'
+'Persistance',
+'Patience',
+'Spreading the disease',
+'Focus',
+'Groaning',
+'Sieging',
+'Moaning',
+'Howling',
+'Pouncing',
+'Terrifying the locals',
+'Lurching',
+'Short Incubation',
+'Face eating',
+'Strength',
+'Swarming',
+'Biting',
+'Gnawing',
+'Skull Crushing',
+'Human Hunting',
+'Human Tracking',
+'Endurance',
+'Regeneration',
+'Apathy',
+'Crawling',
+'Infection',
+'Jumping',
+'Frightening Children',
+'Dispersing Crowds',
+'Chewing',
+'Eating Flesh',
+'Eating Brains',
+'Scaling Buildings'
 ];
 
 function hashCode(str){
@@ -49,7 +74,22 @@ function hashCode(str){
     return hash;
 };
 
+var used = [];
+
 $('.endorse-item-name-text').each(function(i, item){
 	var $item = $(item);
-	$item.text(skill_replacements[Math.abs(hashCode($item.text()))%skill_replacements.length]);
+	var pos = Math.abs(hashCode($item.text()))%skill_replacements.length;
+	while (true) {
+		if (used.length == skill_replacements.length){
+			break;
+		}
+		if (!used[pos]){
+			$item.text(skill_replacements[pos]);
+			used[pos] = true;
+			break;
+		} else {
+			pos += 1;
+		}
+	}
 });
+
