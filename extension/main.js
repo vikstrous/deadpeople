@@ -1,7 +1,8 @@
 
 var lookup = {
 	'202228009': 'http://www.makemezombie.com/shared/4/mmz/1306144/zombified_wb20130614045459261285.png',
-	'63754522': 'http://www.makemezombie.com/shared/4/mmz/1306144/zombified_wb20130614044413149561.png'
+	'63754522': 'http://www.makemezombie.com/shared/4/mmz/1306144/zombified_wb20130614044413149561.png',
+	'119948225': 'http://www.makemezombie.com/shared/4/mmz/1306177/zombified_wb20130616070023278921.png'
 };
 $('.profile-picture img').attr('src', lookup[/id=([0-9]+)/.exec(location.href)[1]]);
 $('#text-ad-container').html('');
