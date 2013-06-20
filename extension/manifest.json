@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Dead People",
-  "description": "This extension helps you see dead people.",
+  "name": "BraINs",
+  "description": "This extension turns LinkedIn profiles into zombies.",
   "version": "1.0",
 
   "content_scripts": [{
